@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 11:42:31 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/04 15:47:14 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/10 14:43:11 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int 	check_room_name(char *str)
 
 void	final_checks(t_graph *graph, int  num)
 {
-	if (num == -1)
+	if (num == -1)/*gnl error */
 		exit_error("error reading file");
 	check_graph(graph);
 }

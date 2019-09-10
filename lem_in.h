@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/06 17:06:54 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/10 16:45:01 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct 			s_ants
 typedef struct			s_room
 {
 	char	 			*name;
-	t_point 	      	point; /*where*/
+	t_point 	      	point; /*where in x and y */
 	int					vn;
 	int					visited;
 	int					is_start;
@@ -121,6 +121,28 @@ void				check_start_&_end(t_graph *graph,  char **line);
 void				check_room(t_graph *graph, char *line, int is_start, int is_end);
 void				final_checks(t_graph *graph, int num);
 void				check_link(t_graph *graph, char *line);
+
 					/*add_room*/
 					/*add_neighbor*/
+/*initialize*/
+
+/*proccess rooms*/
+int					load_data(t_graph *graph);
+t_graph				*build_room(t_file_room f_room);
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rooms.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/10 14:08:43 by emanana           #+#    #+#             */
+/*   Updated: 2019/09/10 16:45:04 by emanana          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "lem_in.h"
+
+int			load_data(t_graph *graph)
+{
+	int 	validater;
+	int 	gnlfd;
+	char 	*line;
+
+	line  = NULL;
+	validater = -1;
+	while ((gnlfd = get_next_line(STDINN_FILENO, &line) > 0))
+	{
+		/* if [(line > ## ) > 0 && cmp(##line, 2) == 0*] is true*/
+		if (!ft_strncmp(line, "##", 2))
+			check_start_&_end(graph, &line);
+		else if (*line == '#')
+			NOP();/* no operation operation*/
+		else if (validater == -1)
+			validater = check_if_ants(line);
+		else if (check_room_name(line) && ft_strchr(' '))
+			check_room(graph,  line, 0, 0);
+		else if (check_room_name(line) && ft_strchr('-'))
+			check_link(graph, line);
+		else 
+			exit_error("Empty-line OR invalid line"); 
+		free(line);
+	}
+	final_checks(graph, gnlfd);/*check if get next line read correctly*/
+	line = NULL;/* not leavin a dangling pointer */
+	return (validater);
+}
+/*build, name and populate the room*/
+t_room		*init_room(t_file_room file_room)
+{
+	t_room	*room;
+
+	if (!(room = (t_room*)ft_memalloc(sizeof(t_room) *  1)))
+		return (NULL);
+	/*filing the room*/
+	room->name = file_room->name;
+	room->point.x = file_room->x;
+	room->point.y = file_room->y;
+	room->is_start = file_room->is_start;
+	room->is_end = file_room->is_end;
+
+	room->vn = 0;
+	room->visited = 0;
+	room->neighbors = init_queue();/*build*/
+	room->ants = init_ants();/*build*/
+	return (room); /* return a valid room*/
+}
+
+
+
+
+
+
+
+

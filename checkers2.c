@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/06 17:07:00 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/10 15:12:19 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int 			check_if_ants(char *line)
 		exit_error("ERROR: number of ants must be  > 0 or  positive");
 	if (ants > CAPACITY)
 		exit_error("ERROR: Ants overload");
-	return (amount);
+	return (ants);
 }
 
 /*check for a room*/
@@ -80,7 +80,6 @@ void			check_start_&_end(t_graph *graph, char **line)
 			exit_error("Error processing ##start or ##end command from file"); 
 	}
 }
-
 /*check links*/
 void			check_link(t_graph *graph, char *line)
 {
