@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/11 11:29:06 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:19:50 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct 			s_ants
 	t_ant				*front;
 	int					size;
 }						t_ants;
-
 /*
  * define a room
  */
@@ -100,11 +99,13 @@ typedef struct 		file_link
 	char			*a;
 	char			*b;
 }					t_file_link;
+
+
 /*
  * build graph
  */
 t_graph				*init_graph(int capacity);
-
+int					fetch_key(char *key, int capacity);
 /*
  * helper
  */
@@ -125,16 +126,18 @@ void				check_link(t_graph *graph, char *line);
 					/*add_room*/
 					/*add_neighbor*/
 /*initialize*/
+void				
+		/*init_queue();*/
+void				init_queue(void);
+			/*init_ants*/
+void				init_ants(void);
 
 /*proccess rooms*/
 int					load_data(t_graph *graph);
 t_graph				*build_room(t_file_room f_room);
+t_room				*init_room(t_file_room file_room);
+void				add_room(t_graph *graph, t_file_room f_room);
 #endif
-
-
-
-
-
 
 
 

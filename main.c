@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:22:44 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/11 11:28:48 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/11 13:23:29 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int			main(void)
 	int			vn;
 
 	graph = init_graph(5000);
-
 	/*validate and load data*/
 	vn = load_data(graph);
 

@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 16:14:48 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/04 17:06:07 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:19:45 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,39 @@ t_graph			*init_graph(int capacity)
 	graph->end = NULL;
 	return (graph);
 }
+
+int				fetch_key(char *key, int capacity)
+{
+	int		result;
+	int		i;
+
+
+	result = 0;
+	i = -1;
+	while (key[++i])
+	{
+		result = result + key[i];
+	}
+	result = result + ft_strlen(key);
+	return (result % capacity);
+}
+
+void			graph_insert(t_graph *graph, t_room room)
+{
+	t_node		*node;
+	t_node		*temp;
+
+	if (!(node = (t_node*)ft_memalloc(sizeof(t_node) * 1)))
+		return ;
+	node->key = fetch_key(room->name, graph->capacity);
+	node->room = room;
+	node->next = NULL;
+	if (!)
+}
+
+
+
+
+
+
+

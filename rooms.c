@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 14:08:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/10 16:45:04 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/11 13:28:44 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			load_data(t_graph *graph)
 		if (!ft_strncmp(line, "##", 2))
 			check_start_&_end(graph, &line);
 		else if (*line == '#')
-			NOP();/* no operation operation*/
+			NOP();/* no operation, operation*/
 		else if (validater == -1)
 			validater = check_if_ants(line);
 		else if (check_room_name(line) && ft_strchr(' '))
@@ -41,7 +41,7 @@ int			load_data(t_graph *graph)
 	line = NULL;/* not leavin a dangling pointer */
 	return (validater);
 }
-/*build, name and populate the room*/
+/*build, name and populate, initialize the room*/
 t_room		*init_room(t_file_room file_room)
 {
 	t_room	*room;
@@ -60,6 +60,14 @@ t_room		*init_room(t_file_room file_room)
 	room->neighbors = init_queue();/*build*/
 	room->ants = init_ants();/*build*/
 	return (room); /* return a valid room*/
+}
+
+void		add_room(t_graph *graph, t_file_room filed_room)
+{
+	t_room	*this_room;
+
+	this_room = init_room(filed_room);
+	/*graph_insert(graph, this_room)*/
 }
 
 
