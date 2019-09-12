@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 16:14:48 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/11 16:19:45 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/12 17:46:16 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int				fetch_key(char *key, int capacity)
 	return (result % capacity);
 }
 
-void			graph_insert(t_graph *graph, t_room room)
+void			graph_insert(t_graph *graph, t_room *room)
 {
 	t_node		*node;
 	t_node		*temp;
@@ -56,12 +56,15 @@ void			graph_insert(t_graph *graph, t_room room)
 	node->key = fetch_key(room->name, graph->capacity);
 	node->room = room;
 	node->next = NULL;
-	if (!)
+
+	if (!graph->vn[node->key])/*if no vertex/room has this key*/
+		graph->vn[node->key] = node;/*then this room/vertex takes this hey*/
+	else 
+	{
+		temp = graph->vn[node->key];
+		while (temp->next)
+			temp = temp->next;
+		temp->next = node;
+	}
+	graph->size++;
 }
-
-
-
-
-
-
-

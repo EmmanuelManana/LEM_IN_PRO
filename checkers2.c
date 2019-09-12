@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/10 15:12:19 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/12 17:49:51 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void			check_room(t_graph *graph, char *line,  int is_start, int  is_end)
 }
 
 /*check start and end rooms*/
-void			check_start_&_end(t_graph *graph, char **line)
+void			check_start_and_end(t_graph *graph, char **line)
 {
 	int			s_or_e;;
 	
@@ -87,11 +87,11 @@ void			check_link(t_graph *graph, char *line)
 	char 		**links;
 
 	links = ft_strsplit(line, '-');
-	if (!link || !link[0] || !link[1])
+	if (!links || !links[0] || !links[1])
 		exit_error("invalid links/ could not process links");
-	if (!check_room_name(link[0]) || !check_room_name(link[1]))
-		exit_error("Invalid rooms name/s in link")
-	ret = (t_file_room){liks[0], link[1]};
-	add_neighbor(graph, ret);/*add neighbor*/
+	if (!check_room_name(links[0]) || !check_room_name(links[1]))
+		exit_error("Invalid rooms name/s in link");
+	ret = (t_file_link){links[0], links[1]};
+	/*add_neighbor(graph, ret);add neighbor*/
 	free_str(links);
 }

@@ -6,13 +6,16 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/11 16:19:50 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/12 18:02:57 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LEM_IN_H_
 # define _LEM_IN_H_
 # include "libft/libft.h"
+
+# define NOP() ({;})
+# define CAPACITY 5000
 
 /*lacate ants*/
 typedef struct 		s_position
@@ -55,7 +58,7 @@ typedef struct			s_room
 	struct a_ants		*ants;
 } 						t_room;	
 
-typedef struct 		s_node
+typedef struct 		s_node/*room/ vertex*/
 {
 	int				key;
 	t_room			*room;
@@ -100,43 +103,27 @@ typedef struct 		file_link
 	char			*b;
 }					t_file_link;
 
-
-/*
- * build graph
- */
 t_graph				*init_graph(int capacity);
 int					fetch_key(char *key, int capacity);
-/*
- * helper
- */
+void				graph_insert(t_graph *graph, t_room *room);
+int					load_data(t_graph *graph);
+
 void				exit_error(char *str);
 void				free_str(char **str);
-/*
- * error handling and checks
- */
+
+
 int 				check_num(char *num);/*no*/
 int 				check_room_name(char *str);
 void				check_graph(t_graph *graph);
-void 				check_if_ants(char *line);
-void				check_start_&_end(t_graph *graph,  char **line);
+int 				check_if_ants(char *line);
+void				check_start_and_end(t_graph *graph,  char **line);
 void				check_room(t_graph *graph, char *line, int is_start, int is_end);
 void				final_checks(t_graph *graph, int num);
 void				check_link(t_graph *graph, char *line);
 
-					/*add_room*/
-					/*add_neighbor*/
-/*initialize*/
-void				
-		/*init_queue();*/
-void				init_queue(void);
-			/*init_ants*/
-void				init_ants(void);
 
-/*proccess rooms*/
-int					load_data(t_graph *graph);
-t_graph				*build_room(t_file_room f_room);
-t_room				*init_room(t_file_room file_room);
-void				add_room(t_graph *graph, t_file_room f_room);
+void				add_room(t_graph *graph, t_file_room filed_room);
+
 #endif
 
 
