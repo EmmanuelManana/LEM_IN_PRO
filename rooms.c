@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 14:08:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/12 18:03:09 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/16 14:27:48 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_room		*init_room(t_file_room file_room)
 
 	room->vn = 0;
 	room->visited = 0;
-	/*room->neighbors = init_queue();build*/
+	room->neighbors = init_queue();
 	/*room->ants = init_ants();build*/
 	return (room); /* return a valid room*/
 }

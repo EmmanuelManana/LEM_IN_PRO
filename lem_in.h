@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/12 18:02:57 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/16 14:29:09 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ typedef struct		s_graph
 } 					t_graph;
 
 /*
- * queue ants
+ * queue's
  */
 typedef struct 		s_queue
 {
 	int				size;
 	int				index;
-	t_node          *front;
-	t_node          *back;
+	t_node          *front;/* *next*/
+	t_node          *back;/* *next */
 }					t_queue;
 
 typedef struct		file_room
@@ -103,15 +103,15 @@ typedef struct 		file_link
 	char			*b;
 }					t_file_link;
 
+/*graph and map*/
 t_graph				*init_graph(int capacity);
 int					fetch_key(char *key, int capacity);
 void				graph_insert(t_graph *graph, t_room *room);
-int					load_data(t_graph *graph);
 
 void				exit_error(char *str);
 void				free_str(char **str);
 
-
+/*checks*/
 int 				check_num(char *num);/*no*/
 int 				check_room_name(char *str);
 void				check_graph(t_graph *graph);
@@ -120,9 +120,14 @@ void				check_start_and_end(t_graph *graph,  char **line);
 void				check_room(t_graph *graph, char *line, int is_start, int is_end);
 void				final_checks(t_graph *graph, int num);
 void				check_link(t_graph *graph, char *line);
-
-
+/*init*/
+int					load_data(t_graph *graph);
 void				add_room(t_graph *graph, t_file_room filed_room);
+t_room				*init_room(t_file_room file_room);
+void				add_room(t_graph *graph, t_file_room filed_room);
+
+/*enques*/
+t_queue 			*init_queue(void);
 
 #endif
 
