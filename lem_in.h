@@ -6,13 +6,14 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/16 14:29:09 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/16 14:32:05 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LEM_IN_H_
 # define _LEM_IN_H_
 # include "libft/libft.h"
+# include "libft/get_next_line/get_next_line.h"
 
 # define NOP() ({;})
 # define CAPACITY 5000
