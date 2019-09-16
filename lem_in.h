@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/16 14:32:05 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/16 16:41:09 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,10 @@ void				add_room(t_graph *graph, t_file_room filed_room);
 
 /*enques*/
 t_queue 			*init_queue(void);
+void				enqueue(t_queue *queue, t_room *room);
+t_room				*dequeue(t_queue *queue);
+void				free_queue(t_queue *queue);
+int					isempty_queue(t_queue *queue);
 
 #endif
 
