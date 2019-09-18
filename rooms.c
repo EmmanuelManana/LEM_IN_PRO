@@ -59,7 +59,7 @@ t_room		*init_room(t_file_room file_room)
 	room->vn = 0;
 	room->visited = 0;
 	room->neighbors = init_queue();
-//	room->ants = init_ants();
+	room->ants = init_ants();
 	return (room); /* return a valid room*/
 }
 
@@ -82,4 +82,55 @@ void		add_room(t_graph *graph, t_file_room filed_room)
 		graph->end =this_room;
 	}
 }
+
+void		add_neighbor(t_graph *graph, t_file_link file_link)
+{
+	t_room	*room;
+	t_room	*neighbor;
+
+	room = graph_find(graph, file_link.a);
+	neighbor = graph_find(graph, final_link.b);
+	if (!room || !neighbor || room == neighbor)
+		exit_error("Error: Link cant be added :-(");
+	enqueue_neighbor(room, neighbor);
+}
+
+void    enqueue_neighbor(t_room *room, t_room *neighbor)
+{
+        t_node  *temp;
+
+        temp = room->neighbors->front;
+        while (temp)
+        {
+                if (tmp->room == neighbor)
+                        return ;
+                temp = temp->next;
+        }
+        enqueue(room->neighbors, neighbor);
+        temp = neighbor->neighbors->front;
+        while (temp)
+        {
+                if (tmp->room == room)
+                        return ;
+                temp = temp->next;
+        }
+        enqueue(neighbor->neighbors, room);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

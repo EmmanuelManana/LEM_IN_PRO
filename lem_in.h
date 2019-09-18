@@ -126,6 +126,7 @@ void				check_link(t_graph *graph, char *line);
 int				load_data(t_graph *graph);
 void				add_room(t_graph *graph, t_file_room filed_room);
 t_room				*init_room(t_file_room file_room);
+void				add_neighbor(t_graph *graph, t_file_link file_link);/*1*/
 /*---> add neighbor --->*/
 
 /*enques*/
@@ -138,6 +139,8 @@ t_room				*next_queue(t_queue *queue);
 t_room				*next_queue_unvisited(t_queue *queue);
 void				reset_queue(t_queue *queue);
 int				delete_queue(t_queue **queue, t_room *room);
+
+void				enqueue_neighbor(t_room *room, t_room *neighbor);/*2*/
 
 /*let there be ants, the colony*/
 void				add_ants(t_ants	*ants, int num);
