@@ -31,7 +31,7 @@ typedef struct 		s_position
 typedef struct 			s_ant
 {
 	struct s_ant		*next;
-	int					no;
+	int					num;
 }                       t_ant;
 
 /*
@@ -106,7 +106,7 @@ typedef struct 		file_link
 
 /*graph and map*/
 t_graph				*init_graph(int capacity);
-int					fetch_key(char *key, int capacity);
+int				fetch_key(char *key, int capacity);
 void				graph_insert(t_graph *graph, t_room *room);
 
 void				exit_error(char *str);
@@ -122,17 +122,31 @@ void				check_room(t_graph *graph, char *line, int is_start, int is_end);
 void				final_checks(t_graph *graph, int num);
 void				check_link(t_graph *graph, char *line);
 /*init*/
-int					load_data(t_graph *graph);
+int				load_data(t_graph *graph);
 void				add_room(t_graph *graph, t_file_room filed_room);
 t_room				*init_room(t_file_room file_room);
-void				add_room(t_graph *graph, t_file_room filed_room);
+/*---> add neighbor --->*/
 
 /*enques*/
 t_queue 			*init_queue(void);
 void				enqueue(t_queue *queue, t_room *room);
 t_room				*dequeue(t_queue *queue);
 void				free_queue(t_queue *queue);
-int					isempty_queue(t_queue *queue);
+int				isempty_queue(t_queue *queue);
+t_room				*next_queue(t_queue *queue);
+t_room				*next_queue_unvisited(t_queue *queue);
+void				reset_queue(t_queue *queue);
+int				delete_queue(t_queue **queue, t_room *room);
+
+/*let there be ants*/
+void				add_ants(t_ants	*ants, int num);
+int				remove_ants(t_ants *ants);
+t_ants				*init_ants(void);
+int				move_ants(t_room *from, t_room *to);
+void				free_ants(t_ants *ants);
+void				start_ants(t_ants *ants, int num);
+int				isempty_ants(t_ants *ants, int num);
+
 
 #endif
 
