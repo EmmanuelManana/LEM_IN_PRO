@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/18 12:09:38 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/18 12:22:01 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,6 @@ int				move_ants(t_room *from, t_room *to);
 void				free_ants(t_ants *ants);
 void				start_ants(t_ants *ants, int num);
 int				isempty_ants(t_ants *ants);
-
 
 #endif
 
