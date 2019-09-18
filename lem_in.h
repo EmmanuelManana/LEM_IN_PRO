@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/16 16:41:09 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/18 12:09:38 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,14 +138,14 @@ t_room				*next_queue_unvisited(t_queue *queue);
 void				reset_queue(t_queue *queue);
 int				delete_queue(t_queue **queue, t_room *room);
 
-/*let there be ants*/
+/*let there be ants, the colony*/
 void				add_ants(t_ants	*ants, int num);
 int				remove_ants(t_ants *ants);
 t_ants				*init_ants(void);
 int				move_ants(t_room *from, t_room *to);
 void				free_ants(t_ants *ants);
 void				start_ants(t_ants *ants, int num);
-int				isempty_ants(t_ants *ants, int num);
+int				isempty_ants(t_ants *ants);
 
 
 #endif

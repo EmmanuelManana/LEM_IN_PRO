@@ -43,7 +43,7 @@ int		delete_queue(t_queue **queue, t_room *room)
 		prev = NULL;
 		while (node)
 		{
-			if (node->room = room)
+			if (node->room == room)
 			{
 				if (prev)
 					prev->next = node->next;
