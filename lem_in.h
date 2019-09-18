@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/18 14:41:16 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/18 17:00:46 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define _LEM_IN_H_
 # include "libft/libft.h"
 # include "libft/get_next_line/get_next_line.h"
+# include <stdio.h>
 
 # define NOP() ({;})
 # define CAPACITY 5000
@@ -148,7 +149,7 @@ void				start_ants(t_ants *ants, int num);
 int				isempty_ants(t_ants *ants);
 
 /* output */
-void				print_move(int num, char *dst, int i);/
+void				print_move(int num, char *dst, int i);
 void				print_entry(t_room *room);
 void				print_rooms(t_graph *graph);
 void				print_neighbors(t_graph *visited, t_node *n);
