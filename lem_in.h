@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 14:11:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/18 12:22:01 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/18 12:27:14 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,13 @@ int				move_ants(t_room *from, t_room *to);
 void				free_ants(t_ants *ants);
 void				start_ants(t_ants *ants, int num);
 int				isempty_ants(t_ants *ants);
+
+/* output */
+void				print_move(int num, char *dst, int i);/
+void				print_entry(t_room *room);
+void				print_rooms(t_hash *hash);
+void				print_neighbors(t_hash *visited, t_node *n);
+void				print_links(t_hash *hash);
 
 #endif
 
