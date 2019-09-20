@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 16:14:48 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/18 16:46:46 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/19 17:55:54 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,20 @@ void			graph_insert(t_graph *graph, t_room *room)
 	}
 	graph->size++;
 }
+
+t_room		*graph_find(t_graph *graph, char *name)
+{
+	t_node	*node;
+	int		key;
+
+	key = fetch_key(name, graph->capacity);
+	if (!(node = graph->vn[key]))
+		return (NULL);
+	if (!ft_strcmp(node->room->name, name))
+		return (node->room);
+	while ((node = node->next))
+		if (!ft_strcmp(node->room->name, name))
+			return (node->room);
+	return (NULL);
+}
+

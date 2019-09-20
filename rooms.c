@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 14:08:43 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/18 16:10:36 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/20 09:42:59 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_room		*init_room(t_file_room file_room)
 	room->vn = 0;
 	room->visited = 0;
 	room->neighbors = init_queue();
-	room->ants = init_ants();
+//	room->ants = init_ants();
 	return (room); /* return a valid room*/
 }
 
@@ -89,7 +89,7 @@ void		add_neighbor(t_graph *graph, t_file_link file_link)
 	t_room	*neighbor;
 
 	room = graph_find(graph, file_link.a);
-	neighbor = graph_find(graph, final_link.b);
+	neighbor = graph_find(graph, file_link.b);
 	if (!room || !neighbor || room == neighbor)
 		exit_error("Error: Link cant be added :-(");
 	enqueue_neighbor(room, neighbor);
@@ -102,7 +102,7 @@ void    enqueue_neighbor(t_room *room, t_room *neighbor)
         temp = room->neighbors->front;
         while (temp)
         {
-                if (tmp->room == neighbor)
+                if (temp->room == neighbor)
                         return ;
                 temp = temp->next;
         }
@@ -110,22 +110,12 @@ void    enqueue_neighbor(t_room *room, t_room *neighbor)
         temp = neighbor->neighbors->front;
         while (temp)
         {
-                if (tmp->room == room)
+                if (temp->room == room)
                         return ;
                 temp = temp->next;
         }
         enqueue(neighbor->neighbors, room);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

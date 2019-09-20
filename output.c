@@ -6,7 +6,7 @@
 /*   By: emanana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 14:28:41 by emanana           #+#    #+#             */
-/*   Updated: 2019/09/18 16:59:04 by emanana          ###   ########.fr       */
+/*   Updated: 2019/09/20 09:42:33 by emanana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void		print_entry(t_room *room)
 	if (room->is_end)
 		ft_putstr("##end\n");
 	ft_putstr(room->name);
+	ft_putchar(' ');
 	ft_putnbr(room->point.x);
+	ft_putchar(' ');
 	ft_putnbr(room->point.y);
 	ft_putchar('\n');
 }
@@ -81,17 +83,16 @@ void		print_rooms(t_graph *graph)
 
 void		print_links(t_graph *graph)
 {
-	t_graph *graph;
+	t_graph *visited;
 	t_node	*this;
-
 	int	i;
 
 	visited = init_graph(CAPACITY);
 	i = -1;
 	while (++i < graph->capacity)
 	{
-		node = graph->vn[i];
-		while (node)
+		this = graph->vn[i];
+		while (this)
 		{
 			graph_insert(visited, this->room);
 			if (this->room->neighbors)
